@@ -86,7 +86,7 @@ async function MainForecast() {
                 let AlertHeadline = ""
                 let AlertText = ""
                 currentAlert = Alerts[i]
-                if(!["", "null", null].includes(currentAlert['properties']['parameters']['NWSheadline'])){
+                if(currentAlert['properties']['parameters'].hasOwnProperty("NWSheadline"){
                     AlertHeadline=`${currentAlert['properties']['parameters']['NWSheadline'][0]}\n`
                 }
                 else{
