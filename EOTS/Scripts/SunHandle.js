@@ -43,8 +43,8 @@ async function CheckSun() {
   if (SuntimeAPIURL != "") {
     Data = await CallAPI();
     if (Data != "Fail") {
-      let sunrise = new Date(Data["results"]["sunrise"] + " UTC").getTime();
-      let sunset = new Date(Data["results"]["sunset"] + " UTC").getTime();
+      let sunrise = new Date(Data["results"]["sunrise"]).getTime();
+      let sunset = new Date(Data["results"]["sunset"]).getTime();
       let currentTime = new Date().getTime(); // Convert current time to UTC
 
       if (currentTime >= sunrise && currentTime <= sunset) {
