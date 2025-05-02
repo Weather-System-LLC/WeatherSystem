@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+      default-src 'self';
+      img-src 'self' https://*.basemaps.cartocdn.com/ https://*.openstreetmap.org https://*.tile.stamen.com/ data: ;
+      style-src 'self' 'unsafe-inline';
+      script-src 'self' 'unsafe-inline';
+      connect-src 'self' https://get.geojs.io/ https://www.googleapis.com/ https://api.sunrise-sunset.org/ https://*.basemaps.cartocdn.com/ https://*.openstreetmap.org https://api.weather.gov https://*.api.weather.gov https://*.basemaps.cartocdn.com;
+      "
+    />
+    <link rel="shortcut icon" href="Images/Logo.png" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EOTS Free</title>
+    <link rel="stylesheet" href="leaflet/leaflet.css" />
+    <script src="leaflet/leaflet.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="map" class="map"></div>
+    <script src="Scripts/AlertHandler.js"></script>
+    <script src="Scripts/WeatherAPI.js"></script>
+    <script src="Scripts/maps.js"></script>
+    <script src="Scripts/SunHandle.js"></script>
+  </body>
+</html>
