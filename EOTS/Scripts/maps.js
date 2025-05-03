@@ -164,6 +164,12 @@ let map = L.map("map", {
   zoomControl: false,
 }).setView([35, -100], 5);
 
+//Set Alert Areas
+for (let index = 0; index < 17; index++) {
+  map.createPane(String(index));
+  map.getPane(String(index)).style.zIndex = 200 + index;
+}
+
 Object.keys(RadarLocations).forEach((Radar) => {
   let RadarCircle = L.circle(RadarLocations[Radar], {
     color: "blue",
@@ -190,10 +196,18 @@ async function ConvertGeoJsonToPolygon(coordinates) {
   return coordinates[0].map(([lon, lat]) => [lat, lon]);
 }
 
+async function SetWidth(currentZoom) {
+  const Weight = 0.5555555555555556 * currentZoom;
+  Object.values(MapPolygons).forEach(async (Polygon) => {
+    await Polygon.setStyle({ weight: Weight });
+  });
+}
+
 async function PlacePolygon(Alert) {
   let GeoJsonData = Alert.geometry.coordinates;
   let PolygonData = await ConvertGeoJsonToPolygon(GeoJsonData);
   let AlertColor = "black";
+  let AlertZIndex = "0";
   let AlertName = Alert.properties.event;
   if (AlertName.toLowerCase().includes("tornado watch")) {
     AlertColor = "#fff400";
@@ -208,33 +222,43 @@ async function PlacePolygon(Alert) {
       ) {
         AlertColor = "#8200ff";
         AlertName = "Tornado Emergency";
+        AlertZIndex = "16";
       } else {
         AlertColor = "red";
+        AlertZIndex = "15";
       }
     } else {
       AlertColor = "red";
+      AlertZIndex = "15";
     }
-  } else if (AlertName.toLowerCase().includes("special weather statement")) {
-    AlertColor = "#ff8df5";
   } else if (AlertName.toLowerCase().includes("severe thunderstorm warning")) {
+    AlertZIndex = "14";
     AlertColor = "#ff8f07";
+  } else if (AlertName.toLowerCase().includes("special weather statement")) {
+    AlertZIndex = "11";
+    AlertColor = "#ff8df5";
   } else if (AlertName.toLowerCase().includes("severe weather statement")) {
     AlertColor = "#00fdff";
   } else if (AlertName.toLowerCase().includes("severe thunderstorm watch")) {
     AlertColor = "#ff1f8f";
   } else if (AlertName.toLowerCase().includes("flash flood warning")) {
+    AlertZIndex = "13";
     AlertColor = "#a10000";
   } else if (AlertName.toLowerCase().includes("flash flood watch")) {
     AlertColor = "#00842f";
   } else if (AlertName.toLowerCase().includes("flash flood statement")) {
+    AlertZIndex = "13";
     AlertColor = "#a10000";
   } else if (AlertName.toLowerCase().includes("flood warning")) {
+    AlertZIndex = "12";
     AlertColor = "#00ff04";
   } else if (AlertName.toLowerCase().includes("flood watch")) {
     AlertColor = "#007202";
   } else if (AlertName.toLowerCase().includes("flood statement")) {
+    AlertZIndex = "12";
     AlertColor = "#00ff04";
   } else if (AlertName.toLowerCase().includes("flood advisory")) {
+    AlertZIndex = "12";
     AlertColor = "#66e268";
   } else if (AlertName.toLowerCase().includes("hydrologic statement")) {
     AlertColor = "#66e268";
@@ -242,7 +266,12 @@ async function PlacePolygon(Alert) {
     AlertColor = "#3f8c40";
   }
 
-  let polygon = L.polygon(PolygonData, { color: AlertColor, weight: 5 })
+  let polygon = L.polygon(PolygonData, {
+    color: AlertColor,
+    fillOpacity: 0.07,
+    weight: 2.7777777777777777,
+    pane: AlertZIndex,
+  })
     .addTo(map)
     .bindPopup(
       `<p>${AlertName}</p><p>${Alert.properties.headline}</p><br><p>${Alert.properties.description}</p>`,
@@ -253,12 +282,28 @@ async function PlacePolygon(Alert) {
         closeButton: true,
         autoClose: true,
       }
-    );
+    )
+    .on("mouseover", async () => {
+      await polygon.setStyle({
+        fillOpacity: 0.6,
+      });
+    })
+    .on("mouseout", () => {
+      polygon.setStyle({
+        fillOpacity: 0.07,
+      });
+    })
+    .on("contextmenu", async () => {
+      const bounds = polygon.getBounds();
+      const center = bounds.getCenter();
+      const zoomLevel = map.getBoundsZoom(bounds, false);
+      await SetWidth(zoomLevel - 2);
+      map.flyTo(center, zoomLevel, {
+        duration: 1, // Duration in seconds (increase for slower animation)
+        animate: true,
+      });
+    });
   MapPolygons[Alert.id] = polygon;
-  if (AlertName.toLowerCase().includes("tornado")) {
-    console.log("Front");
-    polygon.bringToFront();
-  }
 }
 
 let Testlist = [];
@@ -326,5 +371,18 @@ async function StartAlertScan() {
   }
   setTimeout(StartAlertScan, 1000);
 }
+
+//Handles Map Interactions
+map.on("zoomend", function () {
+  const currentZoom = map.getZoom();
+  const Weight = 0.5555555555555556 * currentZoom;
+  Object.values(MapPolygons).forEach(async (Polygon) => {
+    await Polygon.setStyle({ weight: Weight });
+  });
+});
+
+map.on("dragstart", function () {
+  map.closePopup();
+});
 
 StartAlertScan();

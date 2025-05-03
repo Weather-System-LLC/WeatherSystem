@@ -12,15 +12,28 @@
       connect-src 'self' https://get.geojs.io/ https://www.googleapis.com/ https://api.sunrise-sunset.org/ https://*.basemaps.cartocdn.com/ https://*.openstreetmap.org https://api.weather.gov https://*.api.weather.gov https://*.basemaps.cartocdn.com;
       "
     />
-    <link rel="shortcut icon" href="Images/Logo.png" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EOTS Free</title>
+    <title>EOTS</title>
     <link rel="stylesheet" href="leaflet/leaflet.css" />
     <script src="leaflet/leaflet.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="map" class="map"></div>
+    <div
+      id="TrafficCamContainer"
+      style="
+        margin: 0;
+        padding: 0%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+      "
+    >
+      <h1>Hello World</h1>
+    </div>
+
+    <script src="Scripts/TrafficCams.js"></script>
     <script src="Scripts/AlertHandler.js"></script>
     <script src="Scripts/WeatherAPI.js"></script>
     <script src="Scripts/maps.js"></script>
