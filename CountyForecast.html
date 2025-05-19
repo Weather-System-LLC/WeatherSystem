@@ -1,39 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="Images/Logo.PNG" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="Images/Logo.webp" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
     <title id="Title">County Forecast</title>
-</head>
-<body>
-    <div id="NavBar" class="left">
+  </head>
+  <body>
+    <div id="NavBar" class="left"></div>
+
+    <h1 id="CountyHeader" style="margin-top: 120px">Forecast</h1>
+    <div
+      style="
+        margin-top: 20px;
+        margin-left: 30px;
+        margin-right: 30px;
+        border-color: black;
+        border-style: solid;
+      "
+    >
+      <p id="Weather"></p>
     </div>
 
-    <h1 id="CountyHeader" style="margin-top:120px">Forecast</h1>
-    <div style="margin-top:20px; margin-left: 30px; margin-right: 30px; border-color: black; border-style: solid;">
-        <p id="Weather"></p>
+    <h1 style="margin-top: 80px">Radar Images</h1>
+    <div style="display: flex; justify-content: center; flex-wrap: wrap">
+      <iframe
+        id="ReflectivityView"
+        src=""
+        frameborder="0"
+        width="1280px"
+        height="800px"
+      ></iframe>
+      <iframe
+        id="VelocityView"
+        src=""
+        frameborder="0"
+        width="1280px"
+        height="800px"
+      ></iframe>
     </div>
 
-    <h1 style="margin-top: 80px;">Radar Images</h1>
-    <div style="display: flex; justify-content: center; flex-wrap: wrap;">
-        <iframe id="ReflectivityView" src="" frameborder="0" width="1280px" height="800px"></iframe>
-        <iframe id="VelocityView" src="" frameborder="0" width="1280px" height="800px"></iframe>
-    </div>
+    <h1 style="margin-top: 80px">Alerts</h1>
+    <div id="AlertsList" class="AlertsList"></div>
 
-    <h1 style="margin-top: 80px;">Alerts</h1>
-    <div id="AlertsList" class="AlertsList">
-        
-    </div>
-
-    <footer id="footer">
-    </footer>
+    <footer id="footer"></footer>
 
     <script src="Scripts/UILoad.js"></script>
     <script src="Scripts/Counties.js"></script>
     <script src="Scripts/Weather.js"></script>
     <script src="Scripts/Accounts.js"></script>
-    <script>MainForecast()</script>
-</body>
+    <script>
+      MainForecast();
+    </script>
+  </body>
 </html>
