@@ -2,7 +2,7 @@ async function AdjustNavText() {
   let BodySize = document.body.clientWidth;
   let FontSize = null;
   if (BodySize <= 445) {
-    FontSize = "18px";
+    FontSize = "17px";
   } else if (BodySize <= 500) {
     FontSize = "25px";
   } else {
