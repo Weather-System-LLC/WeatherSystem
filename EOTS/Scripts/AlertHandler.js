@@ -82,12 +82,12 @@ async function GetAlertType(Alert) {
     if (Alert.properties.parameters.hasOwnProperty("tornadoDamageThreat")) {
       console.log(Alert.properties.parameters.tornadoDamageThreat);
       if (
-        Alert.properties.parameters.tornadoDamageThreat.toLowerCase() ==
+        Alert.properties.parameters.tornadoDamageThreat[0].toLowerCase() ==
         "considerable"
       ) {
         AlertName = "PDS Tornado Warning";
       } else if (
-        Alert.properties.parameters.tornadoDamageThreat.toLowerCase() ==
+        Alert.properties.parameters.tornadoDamageThreat[0].toLowerCase() ==
         "catastrophic"
       ) {
         AlertName = "Tornado Emergency";
