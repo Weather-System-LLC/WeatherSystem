@@ -1,3 +1,5 @@
+let ForecastAreas = {};
+
 let RadarLocations = {
   KBGM: [42.1996899, -75.98472],
   KMVX: [47.52805, -97.32499],
@@ -212,13 +214,18 @@ async function PlacePolygon(Alert) {
   if (AlertName.toLowerCase().includes("tornado watch")) {
     AlertColor = "#fff400";
   } else if (AlertName.toLowerCase().includes("tornado warning")) {
-    if (Alert.properties.parameters.hasOwnProperty("NWSheadline")) {
+    if (Alert.properties.parameters.hasOwnProperty("tornadoDamageThreat")) {
       console.log("Test");
-      console.log(Alert.properties.parameters.NWSheadline);
       if (
-        Alert.properties.parameters.NWSheadline[0]
-          .toLowerCase()
-          .includes("tornado emergency")
+        Alert.properties.parameters.tornadoDamageThreat[0].toLowerCase() ==
+        "considerable"
+      ) {
+        AlertColor = "crimson";
+        AlertName = "PDS Tornado Warning";
+        AlertZIndex = "16";
+      } else if (
+        Alert.properties.parameters.tornadoDamageThreat[0].toLowerCase() ==
+        "catastrophic"
       ) {
         AlertColor = "#8200ff";
         AlertName = "Tornado Emergency";

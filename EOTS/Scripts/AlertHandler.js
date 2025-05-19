@@ -79,11 +79,16 @@ let timezones = {
 async function GetAlertType(Alert) {
   let AlertName = Alert.properties.event;
   if (AlertName.toLowerCase().includes("tornado warning")) {
-    if (Alert.properties.parameters.hasOwnProperty("NWSheadline")) {
+    if (Alert.properties.parameters.hasOwnProperty("tornadoDamageThreat")) {
+      console.log(Alert.properties.parameters.tornadoDamageThreat);
       if (
-        Alert.properties.parameters.NWSheadline[0]
-          .toLowerCase()
-          .includes("tornado emergency")
+        Alert.properties.parameters.tornadoDamageThreat.toLowerCase() ==
+        "considerable"
+      ) {
+        AlertName = "PDS Tornado Warning";
+      } else if (
+        Alert.properties.parameters.tornadoDamageThreat.toLowerCase() ==
+        "catastrophic"
       ) {
         AlertName = "Tornado Emergency";
       } else {
