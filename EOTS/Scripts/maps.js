@@ -167,7 +167,7 @@ let map = L.map("map", {
 }).setView([35, -100], 5);
 
 //Set Alert Areas
-for (let index = 0; index < 17; index++) {
+for (let index = 0; index < 18; index++) {
   map.createPane(String(index));
   map.getPane(String(index)).style.zIndex = 200 + index;
 }
@@ -229,7 +229,7 @@ async function PlacePolygon(Alert) {
       ) {
         AlertColor = "#8200ff";
         AlertName = "Tornado Emergency";
-        AlertZIndex = "16";
+        AlertZIndex = "17";
       } else {
         AlertColor = "red";
         AlertZIndex = "15";
