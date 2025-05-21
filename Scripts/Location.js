@@ -12,6 +12,9 @@ function GetLocation() {
       },
       () => {
         MessageBox.innerText = "Error Occured";
+      },
+      {
+        enableHighAccuracy: true,
       }
     );
   }
