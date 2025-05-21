@@ -18,7 +18,7 @@ async function LoadNavBar() {
   try {
     document.getElementById(
       "NavBar"
-    ).innerHTML = `<a style="padding: 0; margin: 0; margin-top: 5px; margin-left: 10px; margin-right: 40px;"href="index.html"><img style="padding: 0; margin: 0;" width="80px" src="Images/Logo.webp" alt="Logo"></a><a class="NavButton" href="Search.html" style="margin-right: 10px;">Search</a><a class="NavButton" href="EOTS/index.html">EOTS</a><a style="margin-left:auto; margin-right:10px;" id="SigninButton" class="NavButton" href="signin.html">Sign In</a><a style="margin-right:20px;" id="SignupButton" class="NavButton" href="signup.html">Sign Up</a><a style="margin-left:auto; margin-right:20px; display: none;" id="AccountButton" class="NavButton" href="account.html">Account</a><a style="margin-right:20px; display: none;" id="ServiceButton" class="NavButton" href="services.html">Services</a>`;
+    ).innerHTML = `<a style="padding: 0; margin: 0; margin-top: 5px; margin-left: 10px; margin-right: 40px;"href="index.html"><img style="padding: 0; margin: 0;" width="80px" src="Images/Logo.webp" alt="Logo"></a><a class="NavButton" href="weathertools.html" style="margin-right: 10px;">Weather</a><a class="NavButton" href="EOTS/index.html">EOTS</a><a style="margin-left:auto; margin-right:10px;" id="SigninButton" class="NavButton" href="signin.html">Sign In</a><a style="margin-right:20px;" id="SignupButton" class="NavButton" href="signup.html">Sign Up</a><a style="margin-left:auto; margin-right:20px; display: none;" id="AccountButton" class="NavButton" href="account.html">Account</a><a style="margin-right:20px; display: none;" id="ServiceButton" class="NavButton" href="services.html">Services</a>`;
     await AdjustNavText();
     return true;
   } catch (error) {

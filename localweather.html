@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="Images/Logo.webp" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <title id="Title">County Forecast</title>
+  </head>
+  <body>
+    <div id="NavBar" class="left"></div>
+
+    <h1 style="margin-top: 120px" id="Loading">Grabbing Weather</h1>
+
+    <div style="display: none" id="WeatherDisplay">
+      <h1 id="CountyHeader" style="margin-top: 120px">Forecast</h1>
+      <div
+        style="
+          margin-top: 20px;
+          margin-left: 30px;
+          margin-right: 30px;
+          border-color: black;
+          border-style: solid;
+        "
+      >
+        <p id="Weather"></p>
+      </div>
+
+      <h1 style="margin-top: 80px">Alerts</h1>
+      <div id="AlertsList" class="AlertsList"></div>
+    </div>
+
+    <footer style="margin-top: 30vh" id="footer"></footer>
+
+    <script src="Scripts/UILoad.js"></script>
+    <script src="Scripts/LocationWeather.js"></script>
+    <!-- <script src="Scripts/Accounts.js"></script> -->
+  </body>
+</html>
