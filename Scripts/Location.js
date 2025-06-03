@@ -11,7 +11,7 @@ function GetLocation() {
         window.location = `localweather.html?${lat},${long}`;
       },
       () => {
-        MessageBox.innerText = "Error Occured";
+        MessageBox.innerText = "Please allow location services.";
       },
       {
         enableHighAccuracy: true,
