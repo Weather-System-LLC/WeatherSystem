@@ -9,7 +9,6 @@ async function AdjustNavText() {
     FontSize = "30px";
   }
   document.querySelectorAll("a.NavButton").forEach((Text) => {
-    console.log(Text);
     Text.style.fontSize = FontSize;
   });
 }

@@ -1,233 +1,226 @@
 @import url(https://fonts.googleapis.com/css?family=Arimo);
-body{
-    padding: 0;
-    margin: 0;
+body {
+  padding: 0;
+  margin: 0;
 }
 
-h1
-{
-    font-family: "Arimo";
-    font-size: 40px;
-    color:rgb(73, 73, 73);
-    text-align: center;
+h1 {
+  font-family: "Arimo";
+  font-size: 40px;
+  color: rgb(73, 73, 73);
+  text-align: center;
 }
 
-h2
-{
-    font-family: "Arimo";
-    font-size: 30px;
-    color:rgb(73, 73, 73);
-    text-align: center;
+h2 {
+  font-family: "Arimo";
+  font-size: 30px;
+  color: rgb(73, 73, 73);
+  text-align: center;
 }
 
-p
-{
-    font-family: "Arimo";
-    font-size: 20px;
-    color:rgb(73, 73, 73);
+p {
+  font-family: "Arimo";
+  font-size: 20px;
+  color: rgb(73, 73, 73);
 }
 
-
-a.NavButton{
-    text-decoration: none;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    font-family: "Arimo";
-    color:rgb(73, 73, 73);
-    padding: 0;
-    font-size: 30px;
-    transition: 1s;
+a.NavButton {
+  text-decoration: none;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: "Arimo";
+  color: rgb(73, 73, 73);
+  padding: 0;
+  font-size: 30px;
+  transition: 1s;
 }
 
-a.NavButton:hover{
-    color:rgb(102, 100, 100);
-    scale: 110%;
-    transform: translateY(-5px);
+a.NavButton:hover {
+  color: rgb(102, 100, 100);
+  scale: 110%;
+  transform: translateY(-5px);
 }
 
-.left
-{
-    background-color: white;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    top: 0%;
-    position: fixed;
-    left: 0%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    align-content: center;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color:grey;
+.left {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  top: 0%;
+  position: fixed;
+  left: 0%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-content: center;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: grey;
 }
 
-.AlertsList{
-    margin-left: 30px; 
-    margin-right: 30px; 
-    border-color: black; 
-    border-style: solid;
-    border-bottom-style: none;
+.AlertsList {
+  margin-left: 30px;
+  margin-right: 30px;
+  border-color: black;
+  border-style: solid;
+  border-bottom-style: none;
 }
 
-.AlertBox{
-    border-bottom-style: solid;
-    border-bottom-color:black;
+.AlertBox {
+  border-bottom-style: solid;
+  border-bottom-color: black;
 }
 
-.AlertBox p{
-    margin-top: 10px;
-    margin-bottom: 10px;
+.AlertBox p {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.StandaloneAlertBox{
-    margin-left: 30px; 
-    margin-right: 30px; 
-    border-style: solid;
-    border-color:black;
+.StandaloneAlertBox {
+  margin-left: 30px;
+  margin-right: 30px;
+  border-style: solid;
+  border-color: black;
 }
 
-.StandaloneAlertBox p{
-    margin-top: 10px;
-    margin-bottom: 10px;
+.StandaloneAlertBox p {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-option{
-    font-size: 30px;
-    font-family: "Arimo";
+option {
+  font-size: 30px;
+  font-family: "Arimo";
 }
 
-select{
-    font-size: 30px;
-    cursor: pointer;
-    margin: 0;
+select {
+  font-size: 30px;
+  cursor: pointer;
+  margin: 0;
 }
 
-.menu1
-{
-    margin: 0;
-    padding: 0;
-    margin-right: 10px;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-content: end;
-    flex-wrap: wrap;
-    flex-direction: column;
+.menu1 {
+  margin: 0;
+  padding: 0;
+  margin-right: 10px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  /* align-content: end; */
+  /* flex-wrap: wrap; */
+  /* flex-direction: column; */
 }
-.menu2
-{
-    margin: 0;
-    margin-left: 10px;
-    padding: 0;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-content: start;
-    flex-wrap: wrap;
-    flex-direction: column;
+.menu2 {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  /* align-content: start; */
+  /* flex-wrap: wrap; */
+  /* flex-direction: column; */
 }
 
-button{
-    font-family: "Arimo";
-    font-size: 40px;
-    color:rgb(73, 73, 73);
-    padding: 5px;
-    padding-right: 20px;
-    padding-left: 20px;
-    cursor: pointer;
-    margin-top: 10px;
-    background-color: white;
-    border-radius: 5px;
-    border-color: black;
+button {
+  font-family: "Arimo";
+  font-size: 40px;
+  color: rgb(73, 73, 73);
+  padding: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 5px;
+  border-color: black;
 }
 
-footer{
-    background-color: white;
-    margin: 0;
-    margin-top: 40px;
-    padding: 0;
-    width: 100%;
-    bottom: 0%;
-    left: 0%;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    border-top-width: 1px;
-    border-top-style: solid;
-    border-top-color:grey;
+footer {
+  background-color: white;
+  margin: 0;
+  margin-top: 40px;
+  padding: 0;
+  width: 100%;
+  bottom: 0%;
+  left: 0%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: grey;
 }
 
-.center{
-    display: flex;
-    width: 100vw;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
-    flex-direction: column;
+.center {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-input{
-    font-size: 20px;
+input {
+  font-size: 20px;
 }
 
-.popup{
-    width: 100vw;
-    height: 100vh;
-    top: 0%;
-    display: none;
-    position: fixed;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
-    margin: 0;
-    z-index: 1;
-    background-color: rgba(73, 73, 73, 0.774);
+.popup {
+  width: 100vw;
+  height: 100vh;
+  top: 0%;
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+  z-index: 1;
+  background-color: rgba(73, 73, 73, 0.774);
 }
 
-.popupmenu{
-    width: 80%;
-    height: 80%;
-    border-radius: 10px;
-    border-color: black;
-    border-width: 5px;
-    border-style:solid;
-    background-color: aliceblue;
-    overflow-y: scroll;
+.popupmenu {
+  width: 80%;
+  height: 80%;
+  border-radius: 10px;
+  border-color: black;
+  border-width: 5px;
+  border-style: solid;
+  background-color: aliceblue;
+  overflow-y: scroll;
 }
 
-.center{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-button:hover{
-    background-color: rgb(211, 211, 211);
+button:hover {
+  background-color: rgb(211, 211, 211);
 }
 
 input[type="checkbox"] {
-    width: 40px;
-    height: 40px;
-    border: 2px solid #000;
-    background-color: #fff;
-    padding: 0;
-    box-sizing: border-box;
-    flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #000;
+  background-color: #fff;
+  padding: 0;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
-.box{
-    border-color: black;
-    border-style: solid;
-    max-width: 50%;
-    border-width: 5px;
-    border-radius: 20px;
+.box {
+  border-color: black;
+  border-style: solid;
+  max-width: 50%;
+  border-width: 5px;
+  border-radius: 20px;
 }
 
-.right{
-    display: flex;
-    justify-content: right;
+.right {
+  display: flex;
+  justify-content: right;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -236,5 +229,5 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 input[type="number"] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
