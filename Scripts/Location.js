@@ -1,4 +1,5 @@
 const MessageBox = document.getElementById("message");
+MessageBox.innerText = "Please Allow Location Services.";
 
 function GetLocation() {
   if (navigator.geolocation) {
@@ -11,7 +12,7 @@ function GetLocation() {
         window.location = `localweather.html?${lat},${long}`;
       },
       () => {
-        MessageBox.innerText = "Please allow location services.";
+        MessageBox.innerText = "You Blocked Locaion Services.";
       },
       {
         enableHighAccuracy: true,
