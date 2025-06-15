@@ -1,4 +1,5 @@
 const TownName = document.getElementById("TownName");
+const Temp = document.getElementById("Temp");
 const LoadingText = document.getElementById("Loading");
 const WeatherDisplay = document.getElementById("WeatherDisplay");
 const AlertList = document.getElementById("AlertsList");
@@ -84,14 +85,41 @@ async function GetForecast(lat, long) {
       ];
     TownName.innerText = `${LocationData["properties"]["relativeLocation"]["properties"]["city"]}, ${StateName}`;
     const ForecastLink = LocationData["properties"]["forecast"];
+    const ObservationLink = LocationData["properties"]["observationStations"];
 
-    const ForecastResponse = await fetch(ForecastLink);
+    const ObservationLinkResponse = await fetch(ObservationLink, {
+      headers: {
+        "User-Agent": "Weather System Forecasts, weathersystemllc@gmail.com",
+      },
+    });
+
+    const ObservationData = await ObservationLinkResponse.json();
+    const StationIDURL = ObservationData["features"][0]["id"];
+    const StationID = StationIDURL.split("/")[4];
+    const ReadingLink = `https://cors-anywhere.herokuapp.com/https://tgftp.nws.noaa.gov/data/observations/metar/stations/${StationID}.TXT`;
+
+    const ReadingResponse = await fetch(ReadingLink, {
+      headers: {
+        "User-Agent": "Weather System Forecasts, weathersystemllc@gmail.com",
+      },
+    });
+
+    const ReadingData = await ReadingResponse.json();
+    const CTemp = ReadingData["properties"]["temperature"]["value"];
+    const FTemp = CTemp * 1.8 + 32;
+    Temp.innerText = `${FTemp}°`;
+
+    const ForecastResponse = await fetch(ForecastLink, {
+      headers: {
+        "User-Agent": "Weather System Forecasts, weathersystemllc@gmail.com",
+      },
+    });
     const ForecastData = await ForecastResponse.json();
     const Periods = ForecastData["properties"]["periods"];
     return { today: Periods[0], tonight: Periods[1] };
   } catch (error) {
     console.log(error);
-    LoadingText.innerText`Error Occurred:${error}`;
+    LoadingText.innerText = `Error Occurred:${error}`;
   }
 }
 
@@ -110,7 +138,7 @@ async function GetAlerts(lat, long) {
     return AlertData["features"];
   } catch {
     console.log(error);
-    LoadingText.innerText`Error Occurred:${error}`;
+    LoadingText.innerText = `Error Occurred:${error}`;
   }
 }
 
