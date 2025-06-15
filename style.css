@@ -32,7 +32,7 @@ a.NavButton {
   color: rgb(73, 73, 73);
   padding: 0;
   font-size: 30px;
-  transition: 1s;
+  transition: transform 1s;
 }
 
 a.NavButton:hover {
