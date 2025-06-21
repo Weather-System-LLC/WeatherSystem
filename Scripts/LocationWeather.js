@@ -96,18 +96,18 @@ async function GetForecast(lat, long) {
     const ObservationData = await ObservationLinkResponse.json();
     const StationIDURL = ObservationData["features"][0]["id"];
     const StationID = StationIDURL.split("/")[4];
-    const ReadingLink = `https://cors-anywhere.herokuapp.com/https://tgftp.nws.noaa.gov/data/observations/metar/stations/${StationID}.TXT`;
+    //const ReadingLink = `https://cors-anywhere.herokuapp.com/https://tgftp.nws.noaa.gov/data/observations/metar/stations/${StationID}.TXT`;
 
-    const ReadingResponse = await fetch(ReadingLink, {
-      headers: {
-        "User-Agent": "Weather System Forecasts, weathersystemllc@gmail.com",
-      },
-    });
+    //const ReadingResponse = await fetch(ReadingLink, {
+      //headers: {
+        //"User-Agent": "Weather System Forecasts, weathersystemllc@gmail.com",
+      //},
+   // });
 
-    const ReadingData = await ReadingResponse.json();
-    const CTemp = ReadingData["properties"]["temperature"]["value"];
-    const FTemp = CTemp * 1.8 + 32;
-    Temp.innerText = `${FTemp}°`;
+    //const ReadingData = await ReadingResponse.json();
+    //const CTemp = ReadingData["properties"]["temperature"]["value"];
+    //const FTemp = CTemp * 1.8 + 32;
+    //Temp.innerText = `${FTemp}°`;
 
     const ForecastResponse = await fetch(ForecastLink, {
       headers: {
