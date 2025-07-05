@@ -109,7 +109,7 @@ async function GetForecast(lat, long) {
       if (TempC) {
         TempF = (TempC*1.8)+32
       }
-      Temp.innerText = `${TempF}°`
+      Temp.innerText = `${Math.round(TempF)}°`
     }
 
     const ForecastResponse = await fetch(ForecastLink, {
