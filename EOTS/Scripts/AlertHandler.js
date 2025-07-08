@@ -118,6 +118,6 @@ async function IssueAlert(Alert) {
   }
   speech.text = AlertText;
   if (AlertType != "Test Message") {
-    window.speechSynthesis.speak(speech);
+    // window.speechSynthesis.speak(speech);
   }
 }
