@@ -237,3 +237,28 @@ iframe {
   height: auto;
   aspect-ratio: 16/9;
 }
+
+.roadmapbox {
+  border-color: gray;
+  border-style: solid;
+  border-width: 2px;
+  padding: 5px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.roadmapbox h1 {
+  font-size: 2rem;
+  text-align: start;
+  margin: 0%;
+  margin-top: 5px;
+}
+
+.roadmapbox p {
+  font-size: 1.3rem;
+  text-align: start;
+  margin: 0%;
+  margin-top: 5px;
+}
