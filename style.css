@@ -330,8 +330,6 @@ select.outlooks option {
 
 .space {
   display: flex;
-  margin-left: 2%;
-  margin-right: 2%;
   width: 100vw;
   justify-content: space-around;
   flex-wrap: wrap;
