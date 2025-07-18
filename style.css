@@ -24,6 +24,10 @@ p {
   color: rgb(73, 73, 73);
 }
 
+a {
+  text-decoration: none;
+}
+
 a.NavButton {
   text-decoration: none;
   margin-top: 1em;
@@ -283,6 +287,7 @@ iframe {
   margin: 0%;
   padding: 0%;
   margin-left: 10px;
+  margin-right: 10px;
 }
 
 .TextHolder p {
@@ -321,4 +326,29 @@ iframe {
 select.outlooks option {
   border-radius: 20px;
   font-size: 2rem;
+}
+
+.space {
+  display: flex;
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 100vw;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.outlookHolder {
+  padding: 1;
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
+}
+
+.outlookHolder h1 {
+  text-align: start;
+  font-size: 1.5rem;
+  margin: 0%;
+  margin-left: 5px;
+  margin-bottom: 10px;
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer src="/EOTS/leaflet/leaflet.js"></script>
     <script defer src="/EOTS/leaflet/togeojson.js"></script>
-    <script defer src="Scripts/convective.js"></script>
+    <script defer src="Scripts/excessive_rainfall.js"></script>
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="/EOTS/leaflet/leaflet.css" />
     <link rel="shortcut icon" href="/Images/Logo.webp" type="image/x-icon" />
@@ -18,12 +18,8 @@
           <option value="1">Day 1</option>
           <option value="2">Day 2</option>
           <option value="3">Day 3</option>
-        </select>
-        <select name="Outlook" id="OutlookSelect">
-          <option value="Categorical">Categorical</option>
-          <option value="Tornado">Tornado</option>
-          <option value="Wind">Wind</option>
-          <option value="Hail">Hail</option>
+          <option value="4">Day 4</option>
+          <option value="5">Day 5</option>
         </select>
       </div>
     </div>
@@ -33,7 +29,6 @@
       class="map"
     ></div>
     <div class="bottombar" id="bottombar">
-      <img src="/Images/Logo.webp" width="100" alt="" />
       <img
         style="margin-left: 0.5rem; margin-right: 1rem"
         src="/Images/noaa_digital_logo.svg"
@@ -44,7 +39,7 @@
         <p id="OutlookText"></p>
         <p id="DateText"></p>
         <p>
-          Credits to <a href="https://www.spc.noaa.gov/">SPC</a>/<a
+          Credits to <a href="https://www.wpc.ncep.noaa.gov/">WPC</a>/<a
             href="https://www.noaa.gov/"
             >NOAA</a
           >/<a href="https://www.weather.gov/">NWS</a>

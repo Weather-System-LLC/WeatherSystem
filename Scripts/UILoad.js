@@ -17,7 +17,7 @@ async function LoadNavBar() {
   try {
     document.getElementById(
       "NavBar"
-    ).innerHTML = `<a style="padding: 0; margin: 0; margin-top: 5px; margin-left: 10px; margin-right: 40px;"href="index.html"><img style="padding: 0; margin: 0;" width="80px" src="Images/Logo.webp" alt="Logo"></a><a class="NavButton" href="weathertools.html" style="margin-right: 15px;">Weather</a><a class="NavButton" href="Outlooks/convectiveoutlook.html?outlook=Categorical&day=1">Outlooks</a>`;
+    ).innerHTML = `<a style="padding: 0; margin: 0; margin-top: 5px; margin-left: 10px; margin-right: 40px;"href="index.html"><img style="padding: 0; margin: 0;" width="80px" src="Images/Logo.webp" alt="Logo"></a><a class="NavButton" href="weathertools.html" style="margin-right: 15px;">Weather</a><a class="NavButton" href="Outlooks/index.html">Outlooks</a>`;
     await AdjustNavText();
     return true;
   } catch (error) {
