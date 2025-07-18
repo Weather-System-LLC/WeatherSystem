@@ -340,6 +340,7 @@ select.outlooks option {
   border-radius: 20px;
   border-width: 1px;
   border-style: solid;
+  width: 40vw;
   overflow: hidden;
 }
 
@@ -349,4 +350,6 @@ select.outlooks option {
   margin: 0%;
   margin-left: 5px;
   margin-bottom: 10px;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
