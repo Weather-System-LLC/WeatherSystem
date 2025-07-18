@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="/EOTS/leaflet/leaflet.js"></script>
+    <script defer src="/EOTS/leaflet/togeojson.js"></script>
+    <script defer src="/Scripts/convective.js"></script>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/EOTS/leaflet/leaflet.css" />
+    <link rel="shortcut icon" href="/Images/Logo.webp" type="image/x-icon" />
+    <title>SPC Convective Outlook</title>
+  </head>
+  <body>
+    <div class="outlookoptionholder">
+      <div id="Round" class="Round">
+        <select name="Day" id="DaySelect">
+          <option value="1">Day 1</option>
+          <option value="2">Day 2</option>
+          <option value="3">Day 3</option>
+        </select>
+        <select name="Outlook" id="OutlookSelect">
+          <option value="Categorical">Categorical</option>
+          <option value="Tornado">Tornado</option>
+          <option value="Wind">Wind</option>
+          <option value="Hail">Hail</option>
+        </select>
+      </div>
+    </div>
+    <div
+      style="margin: 0%; padding: 0%; width: 100vw; height: 100vh; z-index: 0"
+      id="map"
+      class="map"
+    ></div>
+    <div class="bottombar" id="bottombar">
+      <img src="/Images/Logo.webp" width="100" alt="" />
+      <img
+        style="margin-left: 0.5rem; margin-right: 1rem"
+        src="/Images/noaa_digital_logo.svg"
+        width="95"
+        alt=""
+      />
+      <div class="TextHolder">
+        <p id="OutlookText"></p>
+        <p id="DateText"></p>
+        <p>Credits to NOAA/NWS</p>
+      </div>
+    </div>
+  </body>
+</html>
