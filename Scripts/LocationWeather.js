@@ -96,20 +96,23 @@ async function GetForecast(lat, long) {
     const ObservationData = await ObservationLinkResponse.json();
     const StationIDURL = ObservationData["features"][0]["id"];
 
-    const RecordingResponse = await fetch(`${StationIDURL}/observations/latest`, {
-      headers: {
-        "User-Agent": "Weather System Forecasts, weathersystemllc@gmail.com",
+    const RecordingResponse = await fetch(
+      `${StationIDURL}/observations/latest`,
+      {
+        headers: {
+          "User-Agent": "Weather System Forecasts, weathersystemllc@gmail.com",
+        },
       }
-    })
+    );
 
-    if(RecordingResponse.ok){
-      const data = await RecordingResponse.json()
-      const TempC = data["properties"]["temperature"]["value"]
-      let TempF
+    if (RecordingResponse.ok) {
+      const data = await RecordingResponse.json();
+      const TempC = data["properties"]["temperature"]["value"];
+      let TempF;
       if (TempC) {
-        TempF = (TempC*1.8)+32
+        TempF = TempC * 1.8 + 32;
       }
-      Temp.innerText = `${Math.round(TempF)}°`
+      Temp.innerText = `${Math.round(TempF)}°`;
     }
 
     const ForecastResponse = await fetch(ForecastLink, {
@@ -166,18 +169,18 @@ async function GetAlertData(Alert) {
     }
     return {
       Headline: TornadoType,
-      Text: `<span style='font-weight: bold;'>${Alert["properties"]["headline"]}</span>\n\n<span style='font-weight: bold;'>Detection</span>\n${TornadoDetection}\n\n<span style='font-weight: bold;'>Severity</span>\n${Alert["properties"]["severity"]}`,
+      Text: `<span style='font-weight: bold;'>${Alert["properties"]["headline"]}</span>\n\n<span style='font-weight: bold;'>Detection</span>\n${TornadoDetection}\n\n<span style='font-weight: bold;'>Severity</span>\n${Alert["properties"]["severity"]}\n\n<span style='font-weight: bold;'>Description</span>\n${Alert["properties"]["description"]}\n\n<span style='font-weight: bold;'>Instructions</span>\n${Alert["properties"]["instruction"]}`,
     };
   } else {
     if (Alert["properties"]["parameters"].hasOwnProperty("NWSheadline")) {
       return {
         Headline: Alert["properties"]["event"],
-        Text: `<span style='font-weight: bold;'>${Alert["properties"]["headline"]}</span>\n${Alert["properties"]["parameters"]["NWSheadline"]}\n\n<span style='font-weight: bold;'>Severity</span>\n${Alert["properties"]["severity"]}`,
+        Text: `<span style='font-weight: bold;'>${Alert["properties"]["headline"]}</span>\n${Alert["properties"]["parameters"]["NWSheadline"]}\n\n<span style='font-weight: bold;'>Severity</span>\n${Alert["properties"]["severity"]}\n\n<span style='font-weight: bold;'>Description</span>\n${Alert["properties"]["description"]}\n\n<span style='font-weight: bold;'>Instructions</span>\n${Alert["properties"]["instruction"]}`,
       };
     } else {
       return {
         Headline: Alert["properties"]["event"],
-        Text: `<span style='font-weight: bold;'>${Alert["properties"]["headline"]}</span>\n\n<span style='font-weight: bold;'>Severity</span>\n${Alert["properties"]["severity"]}`,
+        Text: `<span style='font-weight: bold;'>${Alert["properties"]["headline"]}</span>\n\n<span style='font-weight: bold;'>Severity</span>\n${Alert["properties"]["severity"]}\n\n<span style='font-weight: bold;'>Description</span>\n${Alert["properties"]["description"]}\n\n<span style='font-weight: bold;'>Instructions</span>\n${Alert["properties"]["instruction"]}`,
       };
     }
   }
