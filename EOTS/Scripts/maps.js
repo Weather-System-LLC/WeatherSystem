@@ -185,6 +185,10 @@ const radarLayer = L.tileLayer
 
 radarLayer.setOpacity(0.75);
 
+setInterval(() => {
+  radarLayer.redraw(); // forces Leaflet to re-fetch from server
+}, 60 * 1000); // every 60 seconds (adjust as you like)
+
 //Set Alert Areas
 for (let index = 0; index < 18; index++) {
   map.createPane(String(index));
