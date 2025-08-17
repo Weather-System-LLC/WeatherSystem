@@ -170,24 +170,18 @@ map.createPane("radarPane");
 map.getPane("radarPane").style.zIndex = 201;
 map.getPane("radarPane").style.pointerEvents = "none";
 
-const radarLayer = L.tileLayer.wms(
-  "https://nowcoast.noaa.gov/geoserver/observations/weather_radar/wms",
-  {
-    layers: [
-      "conus_base_reflectivity_mosaic",
-      "alaska_base_reflectivity_mosaic",
-      "hawaii_base_reflectivity_mosaic",
-      "puertorico_base_reflectivity_mosaic",
-      "guam_base_reflectivity_mosaic"
-    ].join(","),
+const radarLayer = L.tileLayer
+  .wms("https://opengeo.ncep.noaa.gov/geoserver/conus/conus_bref_qcd/ows", {
+    layers: "conus_bref_qcd",
     format: "image/png",
     transparent: true,
     version: "1.3.0",
-    pane: "radarPane",
-    crs: L.CRS.EPSG3857,
-    attribution: "Radar © NOAA/NWS nowCOAST"
-  }
-).addTo(map);
+    styles: "",
+    pane: "radarPane", // draw in the radar pane
+    crs: L.CRS.EPSG3857, // Leaflet’s default CRS
+    attribution: "Radar © NOAA/NWS NCEP MRMS",
+  })
+  .addTo(map);
 
 radarLayer.setOpacity(0.75);
 
