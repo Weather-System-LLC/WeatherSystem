@@ -166,6 +166,25 @@ let map = L.map("map", {
   zoomControl: false,
 }).setView([35, -100], 5);
 
+map.createPane("radarPane");
+map.getPane("radarPane").style.zIndex = 201;
+map.getPane("radarPane").style.pointerEvents = "none";
+
+const radarLayer = L.tileLayer
+  .wms("https://opengeo.ncep.noaa.gov/geoserver/conus/conus_bref_qcd/ows", {
+    layers: "conus_bref_qcd",
+    format: "image/png",
+    transparent: true,
+    version: "1.3.0",
+    styles: "",
+    pane: "radarPane", // draw in the radar pane
+    crs: L.CRS.EPSG3857, // Leaflet’s default CRS
+    attribution: "Radar © NOAA/NWS NCEP MRMS",
+  })
+  .addTo(map);
+
+radarLayer.setOpacity(0.75);
+
 //Set Alert Areas
 for (let index = 0; index < 18; index++) {
   map.createPane(String(index));
